@@ -7,6 +7,7 @@ import HeaderComponent from "./HeaderComponent.jsx"
 import FooterComponent from "./FooterComponent.jsx";
 import LogoutComponent from "./LogoutComponent.jsx";
 import WelcomeComponent from "./WelcomeComponent.jsx";
+import ErrorComponent from "./ErrorComponent.jsx"
 import './Todo.css'
 
 class TodoApp extends Component {
@@ -28,10 +29,6 @@ class TodoApp extends Component {
             </div>
         )
     }
-}
-
-function ErrorComponent() {
-    return <div>Page does not exist!</div>
 }
 
 export default TodoApp;
