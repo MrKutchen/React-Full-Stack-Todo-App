@@ -22,7 +22,9 @@ class Counter extends Component {
                 <CounterButton by={5} incrementMethod={this.increment} decrementMethod={this.decrement}/>
                 <CounterButton by={10} incrementMethod={this.increment} decrementMethod={this.decrement}/>
                 <span className="count">{this.state.counter}</span>
-                <div><button className="reset" onClick={this.reset}>Reset</button></div>
+                <div>
+                    <button className="reset" onClick={this.reset}>Reset</button>
+                </div>
             </div>
         );
     }
@@ -54,9 +56,9 @@ class Counter extends Component {
 }
 
 class CounterButton extends Component {
-    constructor() {
-        super();
-    }
+    // constructor() {
+    //     super();
+    // }
 
 
     render() {
