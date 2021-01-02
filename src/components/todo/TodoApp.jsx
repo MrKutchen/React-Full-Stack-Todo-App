@@ -8,7 +8,6 @@ import FooterComponent from "./FooterComponent.jsx";
 import LogoutComponent from "./LogoutComponent.jsx";
 import WelcomeComponent from "./WelcomeComponent.jsx";
 import ErrorComponent from "./ErrorComponent.jsx"
-import './Todo.css'
 
 class TodoApp extends Component {
     render() {
