@@ -23,13 +23,15 @@ class LoginComponent extends Component {
     }
 
     loginClicked() {
-        if (this.state.username === 'Peter' && this.state.password === 'Kutchen') {
-            AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password);
-            this.props.history.push(`/welcome/${this.state.username}`)
-        } else {
+        AuthenticationService
+            .executeBasicAuthenticationService(this.state.username, this.state.password)
+            .then(() => {
+                AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
+                this.props.history.push(`/welcome/${this.state.username}`)
+            }).catch(() => {
             this.setState({showSuccessMessage: false})
             this.setState({hasLoginFailed: true})
-        }
+        })
     }
 
     render() {
@@ -38,11 +40,9 @@ class LoginComponent extends Component {
                 <h1>Login</h1>
                 <div className="container">
                     {this.state.hasLoginFailed && <div className="alert alert-warning">Invalid Credentials</div>}
-                    {this.state.showSuccessMessage && <div>Success</div>}
-                    User Name: <input type="text" name="username" value={this.state.username}
-                                      onChange={this.handleChange}/>
-                    Password: <input type="password" name="password" value={this.state.password}
-                                     onChange={this.handleChange}/>
+                    {this.state.showSuccessMessage && <div>Login Sucessful</div>}
+                    User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
+                    Password: <input type="password" name="password" value={this.state.password}  onChange={this.handleChange}/>
                     <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
                 </div>
             </div>
@@ -50,4 +50,4 @@ class LoginComponent extends Component {
     }
 }
 
-export default LoginComponent;
+export default LoginComponent
